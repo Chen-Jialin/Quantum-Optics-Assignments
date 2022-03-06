@@ -1,0 +1,28 @@
+\documentclass{assignment}
+\ProjectInfos{量子光学}{PHYS6651P}{2021-2022 学年第二学期}{作业一}{截止时间: 2022 年 3 月 11 日 (周五)}{陈稼霖}[https://github.com/Chen-Jialin]{SA21038052}
+
+\begin{document}
+\begin{prob}
+    求 $[a^{\dagger},a^n]$.
+\end{prob}
+\begin{sol}
+    $[a^{\dagger},a^n]=a[a^{\dagger},a^{n-1}]+[a^{\dagger},a]a^{n-1}=a[a^{\dagger},a^{n-1}]-a^{n-1}$.\\
+    利用数学归纳法:
+    \begin{itemize}
+        \item 当 $n=1$ 时, $[a^{\dagger},a]=-1$;
+        \item 当 $n=2$ 时, $[a^{\dagger},a^2]=a[a^{\dagger},a]+[a^{\dagger},a]a=-2a$;
+        \item 假设 $[a^{\dagger},a^k]=-ka^{k-1}$, 则当 $n=k+1$ 时, $[a^{\dagger},a^{k+1}]=a[a^{\dagger},a^k]+[a^{\dagger},a]a^k=-a\cdot ka^{k-1}-a^k=-(k+1)a^k$.
+    \end{itemize}
+    故 $[a^{\dagger},a^n]=-na^{n-1}$.
+\end{sol}
+
+\begin{prob}
+    证明 $[a^{\dagger},f(a,a^{\dagger})]=-\frac{\partial f}{\partial a}$.
+\end{prob}
+\begin{pf}
+    设 $f(a,a^{\dagger})=\sum_{m,n}f_{mn}a^m(a^{\dagger})^n$.\\
+    $[a^{\dagger},f]=[a^{\dagger},\sum_{m,n}f_{mn}a^m(a^{\dagger})^n]=\sum_{m,n}f_{mn}[a^{\dagger},a^m(a^{\dagger})^n]=\sum_{mn}f_{mn}\{a^m[a^{\dagger},(a^{\dagger})^n]+[a^{\dagger},a^m](a^{\dagger})^n\}=\sum_{m,n}f_{mn}[a^{\dagger},a^n](a^{\dagger})^n=-\sum_{m,n}f_{mn}ma^{m-1}(a^{\dagger})^n$,\\
+    $-\frac{\partial f}{\partial a}=-\sum_{m,n}f_{mn}ma^{m-1}(a^{\dagger})^n$,\\
+    故 $[a^{\dagger},f(a,a^{\dagger})]=-\frac{\partial f}{\partial a}$.
+\end{pf}
+\end{document}
