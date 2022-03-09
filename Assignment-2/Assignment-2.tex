@@ -1,0 +1,53 @@
+\documentclass{assignment}
+\ProjectInfos{量子光学}{PHYS6651P}{2021-2022 学年第二学期}{作业二}{截止时间: 2022 年 3 月 18 日 (周五)}{陈稼霖}[https://github.com/Chen-Jialin]{SA21038052}
+
+\begin{document}
+\begin{prob}
+    求单模热光场的平均光子数.
+\end{prob}
+\begin{sol}
+    单模热光场的平均光子数为
+    \begin{align}
+        \notag\langle N\rangle=&\tr(\rho a^{\dagger}a)\\
+        \notag=&\sum_m\langle m\rvert\left[1-\exp\left(-\frac{\hbar\omega}{kT}\right)\right]\sum_n\exp\left(-n\frac{\hbar\omega}{kT}\right)\lvert n\rangle\langle n\rvert a^{\dagger}a\lvert m\rangle\\
+        \notag=&\left[1-\exp\left(-\frac{\hbar\omega}{kT}\right)\right]\sum_{m,n}\exp\left(-n\frac{\hbar\omega}{kT}\right)\langle m\vert n\rangle\langle n\rvert a^{\dagger}a\lvert m\rangle\\
+        \notag=&\left[1-\exp\left(-\frac{\hbar\omega}{kT}\right)\right]\sum_n\exp\left(-n\frac{\hbar\omega}{kT}\right)\langle n\rvert a^{\dagger}a\lvert n\rangle\\
+        \notag=&\left[1-\exp\left(-\frac{\hbar\omega}{kT}\right)\right]\sum_n\exp\left(-n\frac{\hbar\omega}{kT}\right)n\\
+        \notag=&\frac{\exp\left(-\frac{\hbar\omega}{kT}\right)}{1-\exp\left(-\frac{\hbar\omega}{kT}\right)}.
+    \end{align}
+\end{sol}
+
+\begin{prob}
+    证明: $D^{\dagger}=D(-\alpha)=[D(\alpha)]^{-1}$, $D^{-1}(\alpha)aD(\alpha)=a+\alpha$.
+\end{prob}
+\begin{pf}
+    位移算符
+    \begin{align}
+        D(\alpha)=e^{\alpha a^{\dagger}-\alpha^*a}=e^{\alpha a^{\dagger}}e^{-\alpha^*a}e^{-\abs{\alpha}^2/2}.
+    \end{align}
+
+    先证第一个等式: 由于
+    \begin{align}
+        D^{\dagger}(\alpha)=&e^{\alpha^*a-\alpha a^{\dagger}},\\
+        D(-\alpha)=&e^{-\alpha a^{\dagger}+\alpha^*a},\\
+        [D(\alpha)]^{-1}=&e^{-\alpha a^{\dagger}+\alpha^*a},
+    \end{align}
+    故
+    \begin{align}
+        D^{\dagger}(\alpha)=D(-\alpha)=[D(\alpha)]^{-1}.
+    \end{align}
+
+    再证第二个等式: 由于 $[a,[a,a^{\dagger}]]=[a^{\dagger},[a,a^{\dagger}]]=0$, 利用 Baker-Hansdoff 公式, 有
+    \begin{align}
+        D^{-1}(\alpha)=e^{\alpha^*a-\alpha a^{\dagger}}=e^{\alpha^*a}e^{-\alpha a^{\dagger}}e^{-[\alpha^*a,\alpha a^{\dagger}]/2}=e^{\alpha^*a}e^{-\alpha a^{\dagger}}e^{\abs{\alpha}^2/2},
+    \end{align}
+    从而
+    \begin{align}
+        D^{-1}(\alpha)aD(\alpha)=e^{\alpha^*}e^{-\alpha a^{\dagger}}e^{\abs{\alpha}^2/2}ae^{\alpha a^{\dagger}}e^{-\alpha a^{\dagger}}e^{-\abs{\alpha}^2/2}=e^{\alpha^*}e^{-\alpha a^{\dagger}}ae^{\alpha a^{\dagger}}e^{-\alpha a^{\dagger}},
+    \end{align}
+    利用 $e^{-xa^{\dagger}}ae^{xa^{\dagger}}=a+x$ 得
+    \begin{align}
+        D^{-1}(\alpha)aD(\alpha)=e^{\alpha^*}(a+x)e^{-\alpha a^{\dagger}}=a+x.
+    \end{align}
+\end{pf}
+\end{document}
