@@ -18,7 +18,13 @@
 \end{sol}
 
 \begin{prob}
-    证明: $D^{\dagger}=D(-\alpha)=[D(\alpha)]^{-1}$, $D^{-1}(\alpha)aD(\alpha)=a+\alpha$.
+    证明平移算符的性质:
+    \[
+        D^{\dagger}=D(-\alpha)=[D(\alpha)]^{-1},
+    \]
+    \[
+        D^{-1}(\alpha)aD(\alpha)=a+\alpha.
+    \]
 \end{prob}
 \begin{pf}
     位移算符
@@ -47,7 +53,65 @@
     \end{align}
     利用 $e^{-xa^{\dagger}}ae^{xa^{\dagger}}=a+x$ 得
     \begin{align}
-        D^{-1}(\alpha)aD(\alpha)=e^{\alpha^*a}(a+x)e^{-\alpha^*a}=a+x.
+        D^{-1}(\alpha)aD(\alpha)=e^{\alpha^*a}(a+x)e^{-\alpha^*a}=a+\alpha.
+    \end{align}
+\end{pf}
+
+\begin{prob}
+    证明:
+    \[
+        a^{\dagger}\lvert\alpha\rangle\langle\alpha\rvert=(\alpha^*+\frac{\partial}{\partial\alpha})\lvert\alpha\rangle\langle\alpha\rvert,
+    \]
+    \[
+        \lvert\alpha\rangle\langle\alpha\rvert a=(\alpha+\frac{\partial}{\partial\alpha^*})\lvert\alpha\rangle\langle\alpha\rvert.
+    \]
+\end{prob}
+\begin{pf}
+    相干态
+    \begin{align}
+        \lvert\alpha\rangle=e^{-\abs{\alpha}^2/2}\sum_n\frac{\alpha^n}{\sqrt{n!}}\lvert n\rangle,
+    \end{align}
+    故
+    \begin{align}
+        \lvert\alpha\rangle\langle\alpha\rvert=e^{-\abs{\alpha}^2}\sum_{n,m}\frac{\alpha^n}{\sqrt{n!}}\frac{(\alpha^*)^m}{\sqrt{m!}}\lvert n\rangle\langle m\rvert.
+    \end{align}
+
+    第一个等式左边:
+    \begin{align}
+        \notag a^{\dagger}\lvert\alpha\rangle\langle\alpha\rvert=&a^{\dagger}e^{-\abs{\alpha}^2}\sum_{n,m}\frac{\alpha^n}{\sqrt{n!}}\frac{(\alpha^*)^m}{\sqrt{m!}}\lvert n\rangle\langle m\rvert\\
+        \notag=&e^{-\abs{\alpha}^2}\sum_{n,m}\frac{\alpha^n}{\sqrt{n!}}\frac{(\alpha^*)^m}{\sqrt{m!}}\sqrt{n+1}\lvert n+1\rangle\langle m\rvert\\
+        =&e^{-\abs{\alpha}^2}\sum_{n=1}^{\infty}\sum_{m=0}^{\infty}\frac{\alpha^{n-1}}{\sqrt{(n-1)!}}\frac{(\alpha^*)^m}{\sqrt{m!}}\sqrt{n}\lvert n\rangle\langle m\rvert
+    \end{align}
+    第一个等式右边:
+    \begin{align}
+        \notag&(\alpha^*+\frac{\partial}{\partial\alpha})\lvert\alpha\rangle\langle\alpha\rvert\\
+        =&(\alpha^*+\frac{\partial}{\partial\alpha})e^{-\abs{\alpha}^2}\sum_{n,m}\frac{\alpha^n}{\sqrt{n!}}\frac{(\alpha^*)^m}{\sqrt{m!}}\lvert n\rangle\langle m\rvert\\
+        \notag=&\alpha^*e^{-\abs{\alpha}^2}\sum_{n,m}\frac{\alpha^n}{\sqrt{n!}}\frac{(\alpha^*)^m}{\sqrt{m!}}\lvert n\rangle\langle m\rvert-\alpha^*e^{-\abs{\alpha}^2}\sum_{n,m}\frac{\alpha^n}{\sqrt{n!}}\frac{(\alpha^*)^m}{\sqrt{m!}}\lvert n\rangle\langle m\rvert+e^{-\abs{\alpha}^2}\sum_{n,m}\sqrt{n}\frac{\alpha^{n-1}}{\sqrt{(n-1)!}}\frac{(a^*)^m}{\sqrt{m!}}\lvert n\rangle\langle m\rvert\\
+        \notag=&e^{-\abs{\alpha}^2}\sum_{n,m}\sqrt{n}\frac{\alpha^{n-1}}{\sqrt{(n-1)!}}\frac{(\alpha^*)^m}{\sqrt{m!}}\lvert n\rangle\langle m\rvert\\
+        =&e^{-\abs{\alpha}^2}\sum_{n=1}^{\infty}\sum_{m=0}^{\infty}\sqrt{n}\frac{\alpha^{n-1}}{\sqrt{(n-1)!}}\frac{(\alpha^*)^m}{\sqrt{m!}}\lvert n\rangle\langle m\rvert,
+    \end{align}
+    故
+    \begin{align}
+        a^{\dagger}\lvert\alpha\rangle\langle\alpha\rvert=(\alpha^*+\frac{\partial}{\partial\alpha})\lvert\alpha\rangle\langle\alpha\rvert.
+    \end{align}
+
+    同理, 第二个等式左边:
+    \begin{align}
+        \notag\lvert\alpha\rangle\langle\alpha\rvert a=&e^{-\abs{\alpha}^2}\sum_{n,m}\frac{\alpha^n}{\sqrt{n!}}\frac{(\alpha^*)^m}{\sqrt{m!}}\lvert n\rangle\langle m\rvert a\\
+        \notag=&e^{-\abs{\alpha}^2}\sum_{n,m}\sqrt{m+1}\frac{\alpha^n}{\sqrt{n!}}\frac{(\alpha^*)^m}{\sqrt{m!}}\lvert n\rangle\langle m+1\rvert\\
+        \notag=&e^{-\abs{\alpha}^2}\sum_{n=0}^{\infty}\sum_{m=1}^{\infty}\sqrt{m}\frac{\alpha^n}{\sqrt{n!}}\frac{(\alpha^*)^{m-1}}{\sqrt{(m-1)!}}\lvert n\rangle\langle m\rvert
+    \end{align}
+    第二个等式右边:
+    \begin{align}
+        \notag&(\alpha+\frac{\partial}{\partial\alpha^*})\lvert\alpha\rangle\langle\alpha\rvert\\
+        \notag=&(\alpha+\frac{\partial}{\partial\alpha^*})e^{-\abs{\alpha}^2}\sum_{n,m}\frac{\alpha^n}{\sqrt{n!}}\frac{(\alpha^*)^m}{\sqrt{m!}}\lvert n\rangle\langle m\rvert\\
+        \notag=&\alpha e^{-\abs{\alpha}^2}\sum_{n,m}\frac{\alpha^n}{\sqrt{n!}}\frac{(\alpha^*)^m}{\sqrt{m!}}\lvert n\rangle\langle m\rvert-\alpha e^{-\abs{\alpha}^2}\sum_{n,m}\frac{\alpha^n}{\sqrt{n!}}\frac{(\alpha^*)^m}{\sqrt{m!}}\lvert n\rangle\langle m\rvert+e^{-\abs{\alpha}^2}\sum_{n,m}\frac{\alpha^n}{\sqrt{n!}}\sqrt{m}\frac{(\alpha^*)^{m-1}}{\sqrt{(m-1)!}}\lvert n\rangle\langle m\rvert\\
+        \notag=&e^{-\abs{\alpha}^2}\sum_{n,m}\frac{\alpha^n}{\sqrt{n!}}\sqrt{m}\frac{(\alpha^*)^{m-1}}{\sqrt{(m-1)!}}\lvert n\rangle\langle m\rvert\\
+        =&e^{-\abs{\alpha}^2}\sum_{n=0}^{\infty}\sum_{m=1}^{\infty}\frac{\alpha^n}{\sqrt{n!}}\sqrt{m}\frac{(\alpha^*)^{m-1}}{\sqrt{(m-1)!}}\lvert n\rangle\langle m\rvert,
+    \end{align}
+    故
+    \begin{align}
+        \lvert\alpha\rangle\langle\alpha\rvert a=(\alpha+\frac{\partial}{\partial\alpha^*})\lvert\alpha\rangle\langle\alpha\rvert.
     \end{align}
 \end{pf}
 \end{document}
