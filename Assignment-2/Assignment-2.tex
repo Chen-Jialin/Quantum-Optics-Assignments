@@ -13,7 +13,8 @@
         \notag=&\left[1-\exp\left(-\frac{\hbar\omega}{kT}\right)\right]\sum_{m,n}\exp\left(-n\frac{\hbar\omega}{kT}\right)\langle m\vert n\rangle\langle n\rvert a^{\dagger}a\lvert m\rangle\\
         \notag=&\left[1-\exp\left(-\frac{\hbar\omega}{kT}\right)\right]\sum_n\exp\left(-n\frac{\hbar\omega}{kT}\right)\langle n\rvert a^{\dagger}a\lvert n\rangle\\
         \notag=&\left[1-\exp\left(-\frac{\hbar\omega}{kT}\right)\right]\sum_n\exp\left(-n\frac{\hbar\omega}{kT}\right)n\\
-        \notag=&\frac{\exp\left(-\frac{\hbar\omega}{kT}\right)}{1-\exp\left(-\frac{\hbar\omega}{kT}\right)}.
+        \notag=&\frac{\exp\left(-\frac{\hbar\omega}{kT}\right)}{1-\exp\left(-\frac{\hbar\omega}{kT}\right)}\\
+        =&\frac{1}{\exp\left(\frac{\hbar\omega}{kT}\right)-1}.
     \end{align}
 \end{sol}
 
@@ -85,7 +86,7 @@
     第一个等式右边:
     \begin{align}
         \notag&(\alpha^*+\frac{\partial}{\partial\alpha})\lvert\alpha\rangle\langle\alpha\rvert\\
-        =&(\alpha^*+\frac{\partial}{\partial\alpha})e^{-\abs{\alpha}^2}\sum_{n,m}\frac{\alpha^n}{\sqrt{n!}}\frac{(\alpha^*)^m}{\sqrt{m!}}\lvert n\rangle\langle m\rvert\\
+        \notag=&(\alpha^*+\frac{\partial}{\partial\alpha})e^{-\abs{\alpha}^2}\sum_{n,m}\frac{\alpha^n}{\sqrt{n!}}\frac{(\alpha^*)^m}{\sqrt{m!}}\lvert n\rangle\langle m\rvert\\
         \notag=&\alpha^*e^{-\abs{\alpha}^2}\sum_{n,m}\frac{\alpha^n}{\sqrt{n!}}\frac{(\alpha^*)^m}{\sqrt{m!}}\lvert n\rangle\langle m\rvert-\alpha^*e^{-\abs{\alpha}^2}\sum_{n,m}\frac{\alpha^n}{\sqrt{n!}}\frac{(\alpha^*)^m}{\sqrt{m!}}\lvert n\rangle\langle m\rvert+e^{-\abs{\alpha}^2}\sum_{n,m}\sqrt{n}\frac{\alpha^{n-1}}{\sqrt{(n-1)!}}\frac{(a^*)^m}{\sqrt{m!}}\lvert n\rangle\langle m\rvert\\
         \notag=&e^{-\abs{\alpha}^2}\sum_{n,m}\sqrt{n}\frac{\alpha^{n-1}}{\sqrt{(n-1)!}}\frac{(\alpha^*)^m}{\sqrt{m!}}\lvert n\rangle\langle m\rvert\\
         =&e^{-\abs{\alpha}^2}\sum_{n=1}^{\infty}\sum_{m=0}^{\infty}\sqrt{n}\frac{\alpha^{n-1}}{\sqrt{(n-1)!}}\frac{(\alpha^*)^m}{\sqrt{m!}}\lvert n\rangle\langle m\rvert,
