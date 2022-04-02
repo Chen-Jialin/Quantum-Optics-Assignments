@@ -1,18 +1,46 @@
 \documentclass{assignment}
-\ProjectInfos{量子光学}{PHYS6651P}{2021-2022 学年第二学期}{作业二}{截止时间: 2022 年 3 月 18 日 (周五)}{陈稼霖}[https://github.com/Chen-Jialin]{SA21038052}
+\ProjectInfos{量子光学}{PHYS6651P}{2021-2022 学年第二学期}{作业三}{截止时间: 2022 年 4 月 8 日 (周五)}{陈稼霖}[https://github.com/Chen-Jialin]{SA21038052}
 
 \begin{document}
 \begin{prob}
     单模热光场 $\rho=\sum_ne^{-n\hbar\nu/kT}(1-e^{-\hbar\nu/kT})\lvert n\rangle\langle n\rvert$ 的 Q 表示.
 \end{prob}
 \begin{sol}
-    
+    单模热光场的表示为
+    \begin{align}
+        \notag Q(\alpha)=&\frac{1}{\pi}\langle\alpha\rvert\rho\lvert\alpha\rangle=\frac{1}{\pi}\langle\alpha\rvert\sum_ne^{-n\hbar\nu/kT}(1-e^{-\hbar\nu/kT})\lvert n\rangle\langle n\vert\alpha\rangle\\
+        \notag=&\frac{1-\exp\left(-\frac{\hbar\nu}{kT}\right)}{\pi}\sum_n\exp\left(-\frac{n\hbar\nu}{kT}\right)\abs{\langle n\vert\alpha\rangle}^2\\
+        \notag=&\frac{1-\exp\left(-\frac{\hbar\nu}{kT}\right)}{\pi}\sum_n\exp\left(-\frac{n\hbar\nu}{kT}\right)\abs{\exp\left(-\frac{\abs{\alpha}^2}{2}\right)\frac{\alpha^n}{\sqrt{n!}}}^2\\
+        \notag=&\frac{1-\exp\left(-\frac{\hbar\nu}{kT}\right)}{\pi}\exp(-\abs{\alpha}^2)\sum_n\frac{\left[\abs{\alpha}^2\exp\left(-\frac{\hbar\nu}{kT}\right)\right]^n}{n!}\\
+        \notag=&\frac{1-\exp\left(-\frac{\hbar\nu}{kT}\right)}{\pi}\exp\left[-\abs{\alpha}^2\left(1-e^{-\hbar\nu/kT}\right)\right]\\
+        =&\frac{1}{\pi}\frac{1}{\bar{n}+1}\exp\left(-\frac{\abs{\alpha}^2}{\bar{n}+1}\right),
+    \end{align}
+    其中单模热光场的平均光子数 $\bar{n}=\frac{1}{e^{\hbar\nu/kT}-1}$.
 \end{sol}
 
 \begin{prob}
     证明 Wigner 分布 $W(\alpha)$ 分布与 P 表示的关系?
 \end{prob}
 \begin{pf}
-    
+    Wigner 分布是 $C_S(\beta)$ 的反 Fourier 变换:
+    \begin{align}
+        W(\alpha)=\frac{1}{\pi^2}\int\mathrm{d}^2\lambda\,e^{\alpha\lambda^*-\alpha^*\lambda}C_S(\lambda),
+    \end{align}
+    其中 $C_S(\lambda)$ 与 $C_N(\lambda)$ 之间的关系为
+    \begin{align}
+        C_S(\lambda)=e^{-\frac{1}{2}\abs{\lambda}^2}C_N(\lambda).
+    \end{align}
+    而 $C_N(\lambda)$ 的反 Fourier 变换为 $p(\beta)$:
+    \begin{align}
+        p(\beta)=\frac{1}{\pi^2}\int\mathrm{d}^2\lambda\,e^{\beta\lambda^*-\beta^*\lambda}C_N(\lambda),
+    \end{align}
+    $e^{-\frac{1}{2}\abs{\lambda}^2}$ 的反 Fourier 变换为
+    \begin{align}
+        \frac{1}{\pi^2}\int\mathrm{d}^2\lambda\,e^{-\frac{1}{2}\abs{\lambda}^2}e^{\beta\lambda^*-\beta^*\lambda}=\frac{2}{\pi}e^{-2\abs{\beta}^2},
+    \end{align}
+    故由卷积定理
+    \begin{align}
+        W(\alpha)=\frac{2}{\pi}\int\mathrm{d}^2\beta\,p(\beta)e^{-2\abs{\alpha-\beta}^2}.
+    \end{align}
 \end{pf}
 \end{document}
