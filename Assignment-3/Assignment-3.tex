@@ -3,6 +3,32 @@
 
 \begin{document}
 \begin{prob}
+    对相干态 $\lvert\alpha\rangle$, 探测效率 $\eta$, 求探测效率
+    \begin{align}
+        P_m=\sum_nP_m^{(n)}\rho_{nn}=\sum_{n\geq m}^{\infty}\begin{pmatrix}
+            n\\
+            m
+        \end{pmatrix}\eta^m(1-\eta)^{n-m}\rho_{nn}.
+    \end{align}
+\end{prob}
+\begin{sol}
+    对处于状态 $\lvert n\rangle$ 的系统, 测得 $m$ 个光子的概率为
+    \begin{align}
+        P_m^{(n)}=\begin{pmatrix}
+            n\\
+            m
+        \end{pmatrix}\eta^m(1-\eta)^{n-m},
+    \end{align}
+    故对相干态 $\lvert\alpha\rangle$, 探测概率为
+    \begin{align}
+        P_m=\sum_nP_m^{(n)}\rho_{nn}=\sum_{n\geq m}\begin{pmatrix}
+            n\\
+            m
+        \end{pmatrix}\eta^m(1-\eta)^{n-m}\rho_{nn}.
+    \end{align}
+\end{sol}
+
+\begin{prob}
     单模热光场 $\rho=\sum_ne^{-n\hbar\nu/kT}(1-e^{-\hbar\nu/kT})\lvert n\rangle\langle n\rvert$ 的 Q 表示.
 \end{prob}
 \begin{sol}
@@ -19,7 +45,10 @@
 \end{sol}
 
 \begin{prob}
-    证明 Wigner 分布 $W(\alpha)$ 分布与 P 表示的关系?
+    证明 Wigner 分布 $W(\alpha)$ 分布与 P 表示的关系:
+    \begin{align}
+        W(\alpha)=\frac{2}{\pi}\int P(\beta)e^{-2\abs{\alpha-\beta}^2}\,\mathrm{d}^2\beta.
+    \end{align}
 \end{prob}
 \begin{pf}
     Wigner 分布是 $C_S(\beta)$ 的反 Fourier 变换:
