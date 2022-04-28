@@ -1,0 +1,108 @@
+\documentclass{assignment}
+\ProjectInfos{量子光学}{PHYS6651P}{2021-2022 学年第二学期}{作业四}{截止时间: 2022 年 4 月 29 日 (周五)}{陈稼霖}[https://github.com/Chen-Jialin]{SA21038052}
+
+\begin{document}
+\begin{prob}
+    $\hat{C}=\frac{1}{2}\Delta\sigma_z+g(\sigma_+a+a^{\dagger}\sigma_-)$, $\hat{N}=a^{\dagger}a+\sigma_+\sigma_-$, $\Delta=\omega-\nu$,\\
+    证明: $\hat{C}^2=\frac{\Delta^2}{4}+g^2\hat{N}^2$.
+\end{prob}
+\begin{pf}
+    等式左边
+    \begin{align}
+        \notag\hat{C}^2=&\left[\frac{1}{2}\Delta\sigma_z+g(\sigma_+a+a^{\dagger}\sigma_-)\right]^2\\
+        \notag=&\frac{\Delta^2}{4}\sigma_z^2+\frac{1}{2}g\Delta[\sigma_z(\sigma_+a+a^{\dagger}\sigma_-)+(\sigma_+a+a^{\dagger}\sigma_-)\sigma_z]+g^2(\sigma_+a+a^{\dagger}\sigma_-)^2\\
+        \notag=&\frac{\Delta^2}{4}+\frac{1}{2}g\Delta[\sigma_+a-a^{\dagger}\sigma_--\sigma_+a+a^{\dagger}\sigma_-]+g^2(\sigma_+a\sigma_+a+\sigma_+aa^{\dagger}\sigma_-+a^{\dagger}\sigma_-\sigma_+a+a^{\dagger}\sigma_-a^{\dagger}\sigma_-)\\
+        \notag=&\frac{\Delta^2}{4}+g^2[\sigma_+\sigma_-(1+a^{\dagger}a)+(1-\sigma_+\sigma_-)a^{\dagger}a]\\
+        =&\frac{\Delta^2}{4}+g^2[\sigma_+\sigma_-+a^{\dagger}a].
+    \end{align}
+    等式右边
+    \begin{align}
+        \notag\frac{\Delta^2}{4}+g^2\hat{N}^2=&\frac{\Delta^2}{4}+g^2(a^{\dagger}a+\sigma_+\sigma_-)^2\\
+        \notag=&\frac{\Delta^2}{4}+g^2(a^{\dagger}aa^{\dagger}a+a^{\dagger}a\sigma_+\sigma_-+\sigma_+\sigma_-a^{\dagger}a+\sigma_+\sigma_-\sigma_+\sigma_-)\\
+        =&\frac{\Delta^2}{4}+g^2[\sigma_+\sigma_-+a^{\dagger}a].
+    \end{align}
+    故等式成立.
+\end{pf}
+
+\begin{prob}
+    某一原子-光场相互作用总 Hamiltonian:
+    \[
+        \hat{H}=\hbar\nu a^{\dagger}a+\frac{1}{2}\hbar\omega\sigma_z+\hbar g[\sigma_+a(a^{\dagger}a)^{1/2}+(a^{\dagger}a)^{1/2}a^{\dagger}\sigma_-],
+    \]
+    初态原子处于上能级 $\lvert a\rangle$, 光场处于粒子数态 $\lvert 1\rangle$, 求 $W(t)=\abs{c_a(t)}^2-\abs{c_b(t)}^2$.
+\end{prob}
+\begin{sol}
+    取哈密顿量
+    \begin{align}
+        \hat{H}=\hat{H}_0+\hat{H}_1,
+    \end{align}
+    其中
+    \begin{align}
+        \hat{H}_0=&\hbar\nu a^{\dagger}a+\frac{1}{2}\hbar\omega\sigma_z,\\
+        \hat{H}_1=&\hbar g[\sigma_+a(a^{\dagger}a)^{1/2}+(a^{\dagger}a)^{1/2}a^{\dagger}\sigma_-].
+    \end{align}
+    在相互作用绘景下, 微扰哈密顿量为
+    \begin{align}
+        \notag\hat{V}=&e^{i\hat{H}_0t/\hbar}\hat{H}_1e^{-i\hat{H}_0t/\hbar}\\
+        \notag=&e^{i\nu a^{\dagger}at}e^{i\frac{1}{2}\omega\sigma_zt}\hbar g[\sigma_+a(a^{\dagger}a)^{1/2}+(a^{\dagger}a)^{1/2}a^{\dagger}\sigma_-]e^{-i\frac{1}{2}\omega\sigma_zt}e^{-i\nu a^{\dagger}at}\\
+        \notag=&\hbar g\left[e^{i\nu a^{\dagger}at}a(a^{\dagger}a)^{1/2}e^{-i\nu a^{\dagger}at}e^{i\frac{1}{2}\omega\sigma_zt}\sigma_+e^{-i\frac{1}{2}\omega\sigma_zt}+e^{i\nu a^{\dagger}at}(a^{\dagger}a)^{1/2}a^{\dagger}e^{-i\nu a^{\dagger}at}e^{i\frac{1}{2}\omega\sigma_zt}\sigma_-e^{-i\frac{1}{2}\omega\sigma_zt}\right]\\
+        =&\hbar g\left[e^{i\nu a^{\dagger}at}ae^{-i\nu a^{\dagger}at}(a^{\dagger}a)^{1/2}e^{i\frac{1}{2}\omega\sigma_zt}\sigma_+e^{-i\frac{1}{2}\omega\sigma_zt}+(a^{\dagger}a)^{1/2}e^{i\nu a^{\dagger}at}a^{\dagger}e^{-i\nu a^{\dagger}at}e^{i\frac{1}{2}\omega\sigma_zt}\sigma_-e^{-i\frac{1}{2}\omega\sigma_zt}\right]
+    \end{align}
+    利用公式 $e^{\alpha A}Be^{-\alpha A}=B+\alpha[A,B]+\frac{\alpha^2}{2!}[A,[A,B]]+\cdots$ 可得
+    \begin{align}
+        e^{i\nu a^{\dagger}at}ae^{-i\nu a^{\dagger}at}=&ae^{-i\nu t},\\
+        e^{i\nu a^{\dagger}at}a^{\dagger}e^{-i\nu a^{\dagger}at}=&a^{\dagger}e^{i\nu t},\\
+        e^{i\frac{1}{2}\omega\sigma_zt}\sigma_+e^{-i\frac{1}{2}\omega\sigma_zt}=&\sigma_+e^{i\omega t},\\
+        e^{i\frac{1}{2}\omega\sigma_zt}\sigma_-e^{-i\frac{1}{2}\omega\sigma_zt}=&\sigma_-e^{-i\omega t},
+    \end{align}
+    从而
+    \begin{align}
+        \hat{V}=\hbar g\left[\sigma_+a(a^{\dagger}a)^{1/2}e^{i\Delta t}+(a^{\dagger}a)^{1/2}a^{\dagger}e^{-i\Delta t}\right],
+    \end{align}
+    其中失谐频率差 $\Delta=\omega-\nu$.
+    系统的一般量子态为
+    \begin{align}
+        \lvert\psi(t)\rangle=\sum_{n=0}^{\infty}[C_{a,n}(t)\lvert a,n\rangle+C_{b,n}(t)\lvert b,n\rangle].
+    \end{align}
+    相互作用绘景下薛定谔方程为
+    \begin{align}
+        i\hbar\frac{\partial}{\partial t}\lvert\psi(t)\rangle=\hat{V}\lvert\psi(t)\rangle,
+    \end{align}
+    \begin{align}
+        \notag\Longrightarrow i\hbar\sum_n[\dot{C}_{a,n}(t)\lvert a,n\rangle+\dot{C}_{b,n}(t)\lvert b,n\rangle]=&\sum_n\hbar g(\sigma_+a(a^{\dagger}a)^{1/2}e^{i\Delta t}+(a^{\dagger}a)^{1/2}a^{\dagger}\sigma_-e^{-i\Delta t})[C_{a,n}(t)\lvert a,n\rangle+C_{b,n}(t)\lvert b,n\rangle]\\
+        =&\sum_n\hbar g[C_{a,n}(t)e^{-i\Delta t}\sqrt{n(n+1)}\lvert b,n+1\rangle+C_{b,n}(t)e^{i\Delta t}\sqrt{(n-1)n}\lvert a,n-1\rangle],
+    \end{align}
+    \begin{align}
+        \label{A4-P2-1}
+        \dot{C}_{a,n}(t)=&-igC_{b,n+1}\sqrt{n(n+1)}e^{i\Delta t},\\
+        \label{A4-P2-2}
+        \dot{C}_{b,n+1}(t)=&-igC_{a,n}\sqrt{n(n+1)}e^{-i\Delta t}.
+    \end{align}
+    由 \eqref{A4-P2-1} 得
+    \begin{align}
+        C_{b,n+1}(t)=\frac{i\dot{C}_{a,n}(t)}{g\sqrt{n(n+1)}e^{-i\Delta t}},
+    \end{align}
+    再代入 \eqref{A4-P2-2} 中得
+    \begin{align}
+        \frac{\mathrm{d}}{\mathrm{d}t}\left[\frac{i\dot{C}_{a,n}(t)}{g\sqrt{n(n+1)}}e^{-i\Delta t}\right]=-igC_{a,n}\sqrt{n(n+1)}e^{-i\Delta t},
+    \end{align}
+    从而解得
+    \begin{align}
+        C_{a,n}(t)=&\left\{C_{a,n}(0)\left[\cos\left(\frac{\Omega_nt}{2}\right)-\frac{i\Delta}{\Omega_n}\sin\left(\frac{\Omega_nt}{2}\right)\right]-\frac{2ig\sqrt{n(n+1)}}{\Omega_n}C_{b,n+1}(0)\sin\left(\frac{\Omega_nt}{2}\right)\right\}e^{i\Delta t/2},\\
+        C_{b,n+1}(t)=&\left\{C_{b,n+1}(0)\left[\cos\left(\frac{\Omega_nt}{2}\right)+\frac{i\Delta}{\Omega_n}\sin\left(\frac{\Omega_nt}{2}\right)\right]-\frac{2ig\sqrt{n(n+1)}}{\Omega_n}C_{a,n}(0)\sin\left(\frac{\Omega_nt}{2}\right)\right\}e^{-i\Delta t/2},
+    \end{align}
+    其中振荡频率
+    \begin{align}
+        \Omega_n=\sqrt{\Delta^2+4g^2n(n+1)}.
+    \end{align}
+    当初态原子处于上能级 $\lvert a\rangle$, 光场处于粒子数态 $\lvert 1\rangle$, 即系统初态为 $\lvert a,1\rangle$, 即 $C_{a,1}(0)=1$ 时,
+    \begin{align}
+        C_{a,1}(t)=&\left[\cos\left(\frac{\Omega_nt}{2}\right)-\frac{i\Delta}{\Omega_n}\sin\left(\frac{\Omega_nt}{2}\right)\right]e^{i\Delta t/2},\\
+        C_{b,2}(t)=&-\frac{2ig\sqrt{n(n+1)}}{\Omega_n}\sin\left(\frac{\Omega_nt}{2}\right)e^{-i\Delta t/2}.
+    \end{align}
+    故
+    \begin{align}
+        W(t)=\abs{C_a(t)}^2-\abs{C_b(t)}^2=\abs{C_{a,1}(t)}^2-\abs{C_{b,2}(t)}^2=\cos^2\left(\frac{\Omega_nt}{2}\right)+\frac{\Delta^2-4g^2n(n+1)}{\Omega_n^2}\sin^2\left(\frac{\Omega_nt}{2}\right).
+    \end{align}
+\end{sol}
+\end{document}
