@@ -9,7 +9,21 @@
     单模场同热库耦合, 求 $\langle a^{\dagger}a\rangle(t)$, 即 $\langle\hat{n}(t)\rangle$, 初始为 $n(0)$.
 \end{prob}
 \begin{sol}
-    
+    $\langle a^{\dagger}a\rangle$ 的运动方程为
+    \begin{align}
+        \notag&\frac{\mathrm{d}\langle a^{\dagger}a\rangle}{\mathrm{d}t}=\frac{\mathrm{d}}{\mathrm{d}t}\tr(\rho a^{\dagger}a)=\tr(\dot{\rho}a^{\dagger}a)\\
+        \notag=&\tr\left\{\left[-\frac{\mathscr{C}}{2}\bar{n}_{\text{th}}(aa^{\dagger}\rho-2a^{\dagger}\rho a+\rho aa^{\dagger})-\frac{\mathscr{C}}{2}(\bar{n}_{\text{th}}+1)(a^{\dagger}a\rho-2a\rho a^{\dagger}+\rho a^{\dagger}a)\right]a^{\dagger}a\right\}\\
+        \notag=&\tr\left\{-\frac{\mathscr{C}}{2}\bar{n}_{\text{th}}(aa^{\dagger}\rho a^{\dagger}a-2a^{\dagger}\rho aa^{\dagger}a+\rho aa^{\dagger}a^{\dagger}a)-\frac{\mathscr{C}}{2}(\bar{n}_{\text{th}}+1)(a^{\dagger}a\rho a^{\dagger}a-2a\rho a^{\dagger}a^{\dagger}a+\rho a^{\dagger}aa^{\dagger}a)\right\}\\
+        \notag=&\tr\left\{\rho\left[-\frac{\mathscr{C}}{2}\bar{n}_{\text{th}}(a^{\dagger}aaa^{\dagger}-2aa^{\dagger}aa^{\dagger}+aa^{\dagger}a^{\dagger}a)-\frac{\mathscr{C}}{2}(\bar{n}_{\text{th}}+1)(a^{\dagger}aa^{\dagger}a-2a^{\dagger}a^{\dagger}aa+a^{\dagger}aa^{\dagger}a)\right]\right\}\\
+        \notag=&\tr\left\{\rho\left[-\frac{\mathscr{C}}{2}\bar{n}_{\text{th}}(a^{\dagger}a(a^{\dagger}a+1)-2(a^{\dagger}a+1)(a^{\dagger}a+1)+(a^{\dagger}a+1)a^{\dagger}a)-\frac{\mathscr{C}}{2}(\bar{n}_{\text{th}}+1)(2a^{\dagger}(a^{\dagger}a+1)a-2a^{\dagger}a^{\dagger}aa)\right]\right\}\\
+        \notag=&\tr\left\{\rho\left[-\frac{\mathscr{C}}{2}\bar{n}_{\text{th}}(-2a^{\dagger}a-2)-\frac{\mathscr{C}}{2}(\bar{n}_{\text{th}}+1)(2a^{\dagger}a)\right]\right\}\\
+        \notag=&\tr\{\mathscr{C}\rho(\bar{n}_{\text{th}}-a^{\dagger}a)\}\\
+        =&\mathscr{C}(n_{\text{th}}-\langle a^{\dagger}a\rangle).
+    \end{align}
+    考虑到 $\langle a^{\dagger}a\rangle$ 的初始值为 $n(0)$, 解上式得
+    \begin{align}
+        \langle a^{\dagger}a\rangle(t)=[n(0)-\bar{n}_{\text{th}}]e^{-\mathscr{C}t}+\bar{n}_{\text{th}}.
+    \end{align}
 \end{sol}
 
 \begin{prob}
