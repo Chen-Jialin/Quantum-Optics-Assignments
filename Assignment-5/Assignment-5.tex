@@ -31,9 +31,71 @@
     \[
         \hat{V}=\Delta\sigma_z\sum_{\bm{k}}(a_{\bm{k}}^{\dagger}e^{-i\omega t}+a_{\bm{k}}e^{i\omega t})
     \]
-    环境算符 $(a_{\bm{k}}^{\dagger},a_{\bm{k}})$, 环境为热平衡谐振子热库, 求系统演化的主方程 $\dot{\rho}_{s}$ (依据课本 (8.1.7) 式).
+    环境算符 $(a_{\bm{k}}^{\dagger},a_{\bm{k}})$, 环境为热平衡谐振子热库, 求系统演化的主方程 $\dot{\rho}_s$ (依据课本 (8.1.7) 式).
 \end{prob}
 \begin{sol}
-    
+    将 $\rho_S$ 的刘维尔方程截断至关于 $\hat{V}$ 的二阶项并对热库做偏迹得到课本 (8.1.7) 式:
+    \begin{align}
+        \dot{\rho}_S=-\frac{i}{\hbar}\tr_R[\hat{V}(t),\rho_S(t_i)\otimes\rho_R(t_i)]-\frac{1}{\hbar^2}\tr_R\int_{t_i}^t[\hat{V}(t),[\hat{V}(t'),\rho_S(t')\otimes\rho_R(t')]]\,\mathrm{d}t',
+    \end{align}
+    其中热平衡谐振子热库的密度算符
+    \begin{align}
+        \rho_R=\prod_{\bm{k}}\left[1-\exp\left(-\frac{\hbar\nu_k}{k_BT}\right)\right]\exp\left(-\frac{\hbar\nu_ka_{\bm{k}}^{\dagger}a_{\bm{k}}}{k_BT}\right),
+    \end{align}
+    其中 $k_B$ 为玻尔兹曼常数, $T$ 为温度.
+    将相互作用 Hamiltonian 的具体表达式代入课本 (8.1.7) 式得
+    \begin{align}
+        \notag\dot{\rho}_S=&-\frac{i\Delta}{\hbar}\sum_{\bm{k}}\langle a_{\bm{k}}^{\dagger}\rangle[\sigma_z,\rho_S(t)]e^{-i\omega t}\\
+        \notag&-\frac{\Delta^2}{\hbar^2}\int_{t_i}^t\mathrm{d}t'\,\sum_{\bm{k},\bm{k}'}\{[\sigma_z\sigma_z\rho_S(t')-2\sigma_z\rho_S(t')\sigma_z+\rho_S(t')\sigma_z\sigma_z]e^{-i\omega(t+t')}\langle a_{\bm{k}}^{\dagger}a_{\bm{k}'}^{\dagger}\rangle\\
+        \notag&+[\sigma_z\sigma_z\rho_S(t')-\sigma_z\rho_S(t')\sigma_z]e^{-i\omega(t-t')}\langle a_{\bm{k}}^{\dagger}a_{\bm{k}'}\rangle\\
+        \notag&+[\sigma_z\sigma_z\rho_S(t')-\sigma_z\rho_S(t')\sigma_z]e^{i\omega(t-t')}\langle a_{\bm{k}}a_{\bm{k}'}^{\dagger}\rangle\}+\text{H.C.}\\
+        \notag=&-\frac{i\Delta}{\hbar}\sum_{\bm{k}}\langle a_{\bm{k}}^{\dagger}\rangle[\sigma_z,\rho_S(t)]e^{-i\omega t}\\
+        \notag&-\frac{\Delta^2}{\hbar^2}\int_{t_i}^t\mathrm{d}t'\,\sum_{\bm{k},\bm{k}'}\{[\rho_S(t')-2\sigma_z\rho_S(t')\sigma_z+\rho_S(t')]e^{-i\omega(t+t')}\langle a_{\bm{k}}^{\dagger}a_{\bm{k}'}^{\dagger}\rangle\\
+        \notag&+[\rho_S(t')-\sigma_z\rho_S(t')\sigma_z]e^{-i\omega(t-t')}\langle a_{\bm{k}}^{\dagger}a_{\bm{k}'}\rangle\\
+        &+[\rho_S(t')-\sigma_z\rho_S(t')\sigma_z]e^{i\omega(t-t')}\langle a_{\bm{k}}a_{\bm{k}'}^{\dagger}\rangle\}+\text{H.C.}
+    \end{align}
+    其中
+    \begin{align}
+        \langle a_{\bm{k}}\rangle=\tr_R(\rho_Ra_{\bm{k}})=\langle a_{\bm{k}}^{\dagger}\rangle=\tr_R(\rho_Ra_{\bm{k}}^{\dagger})=&0,\\
+        \langle a_{\bm{k}}^{\dagger}a_{\bm{k}'}\rangle=\tr_R(\rho_Ra_{\bm{k}}^{\dagger}a_{\bm{k}'})=&\bar{n}_{\bm{k}}\delta_{\bm{kk}'},\\
+        \langle a_{\bm{k}}a_{\bm{k}'}^{\dagger}\rangle=\tr_R(\rho_Ra_{\bm{k}}a_{\bm{k}'}^{\dagger})=&(\bar{n}_{\bm{k}}+1)\delta_{\bm{kk}'},\\
+        \langle a_{\bm{k}}a_{\bm{k}'}\rangle=\tr_R(\rho_Ra_{\bm{k}}a_{\bm{k}'})=\langle a_{\bm{k}}^{\dagger}a_{\bm{k}'}^{\dagger}\rangle=\tr_R(\rho_Ra_{\bm{k}}^{\dagger}a_{\bm{k}'}^{\dagger})=&0,
+    \end{align}
+    模式 $\bm{k}$ 的平均光子数
+    \begin{align}
+        \bar{n}_{\bm{k}}=\frac{1}{\exp\left(\frac{\hbar\nu_k}{k_BT}\right)-1},
+    \end{align}
+    故
+    \begin{align}
+        \dot{\rho}_S=-\frac{\Delta^2}{\hbar^2}\int_{t_i}^t\mathrm{d}t'\,\sum_{\bm{k}}\{[\rho_S(t')-\sigma_z\rho_S(t')\sigma_z]e^{-i\omega(t-t')}\bar{n}_{\bm{k}}+[\rho_S(t')-\sigma_z\rho_S(t')\sigma_z]e^{i\omega(t-t')}(\bar{n}_{\bm{k}}+1)\}+\text{H.C.}.
+    \end{align}
+    将对 $\bm{k}$ 的求和换成积分, 即
+    \begin{align}
+        \sum_{\bm{k}}\rightarrow 2\frac{V}{(2\pi)^3}\int_0^{2\pi}\mathrm{d}\phi\int_0^{\pi}\mathrm{d}\theta\,\sin\theta\int_0^{\infty}\mathrm{d}k\,k^2=2\frac{V}{(2\pi)^3c^3}\int_0^{2\pi}\mathrm{d}\phi\int_0^{\pi}\mathrm{d}\theta\,\sin\theta\int_0^{\infty}\mathrm{d}\nu_k\,\nu_k^2,
+    \end{align}
+    可得
+    \begin{align}
+        \notag\dot{\rho}_S=&-\frac{\Delta^2}{\hbar^2}\frac{V}{\pi^2c^3}\int_{t_i}^t\mathrm{d}t'\,\int_0^{+\infty}\mathrm{d}\nu_k\,\nu_k^2\{[\rho_S(t')-\sigma_z\rho_S(t')\sigma_z]e^{-i\omega(t-t')}\bar{n}_{\bm{k}}+[\rho_S(t')-\sigma_z\rho_S(t')\sigma_z]e^{i\omega(t-t')}(\bar{n}_{\bm{k}}+1)\}\\
+        &+\text{H.C.}.
+    \end{align}
+    在马尔科夫近似下, $\rho_S(t')=\rho_S(t)$, 利用
+    \begin{align}
+        \int_{t_i}^t\mathrm{d}t'\,e^{-i\omega(t-t')}=\pi\delta(\omega),
+    \end{align}
+    可得
+    \begin{align}
+        \dot{\rho}_S=-\frac{\Delta^2}{\hbar^2}\frac{V}{\pi^2c^3}\pi\delta(\omega)\int_0^{+\infty}\mathrm{d}\nu_k\,\nu_k^2\{[\rho_S(t')-\sigma_z\rho_S(t')\sigma_z]\bar{n}_{\bm{k}}+[\rho_S(t')-\sigma_z\rho_S(t')\sigma_z](\bar{n}_{\bm{k}}+1)\}+\text{H.C.}.
+    \end{align}
+    % 利用
+    % \begin{align}
+    %     \notag\int_{-\infty}^{+\infty}\mathrm{d}\nu_k\,\nu_k^2\bar{n}_{\bm{k}}=&\int_0^{+\infty}\mathrm{d}\nu_k\,\frac{\nu_k^2}{\exp\left(\frac{\hbar\nu_k}{k_BT}+1\right)}\\
+    %     \notag&(\text{令}x=\frac{\hbar\nu_k}{k_BT})\\
+    %     \notag=&\left(\frac{k_BT}{\hbar}\right)^3\int_0^{+\infty}\mathrm{d}x\,\frac{x^2}{\exp(x)+1}\\
+    %     \approx&2.404\left(\frac{k_BT}{\hbar}\right)^3,
+    % \end{align}
+    % 可得
+    % \begin{align}
+    %     \dot{\rho}_S=
+    % \end{align}
 \end{sol}
 \end{document}
